@@ -14,13 +14,14 @@ const Message = ({message}) => {
     ref.current?.scrollIntoView({behavior:'smooth'})
   }, [message]);
 
+
   return (
 
     <>
     <div ref={ref} className={`message ${message.senderId === currentUser.uid ? "owner" : ""}`}>
       <div className="messageInfo">
         <img src={message.senderId === currentUser.uid ? currentUser.photoURL : data.user.photoURL} alt="" />
-        <span>just now</span>
+        <span>{ message.date.toDate().getHours() < 12 ?  message.date.toDate().getHours() + ':' + message.date.toDate().getMinutes() + ' AM' : message.date.toDate().getHours()-12 + ':' + message.date.toDate().getMinutes() + ' PM' }</span>
       </div>
       <div className="messageContent">
         <p>{message.text}</p>

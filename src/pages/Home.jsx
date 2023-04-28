@@ -5,7 +5,7 @@ import { AuthContext } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
 
-export const Home = () => {
+export const Home = ({sidebarToggle, setSidebarToggle}) => {
 
   const navigate = useNavigate();
 
@@ -18,8 +18,8 @@ export const Home = () => {
 
   return (
     <div className='home'>
-      <Sidebar />
-      <Chat />
+      <Sidebar sidebarToggle= {sidebarToggle} setSidebarToggle = {setSidebarToggle} />
+      <Chat sidebarToggle= {sidebarToggle} setSidebarToggle = {setSidebarToggle}/>
     </div>
   )
 }

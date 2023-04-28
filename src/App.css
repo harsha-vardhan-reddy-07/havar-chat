@@ -2,7 +2,9 @@
 /* Login, Register page */
 
 .formContainer{
-    background-color: rgb(159, 212, 228);
+    /* background-color: rgb(159, 212, 228); */
+    background: rgb(207,155,255);
+background: linear-gradient(135deg, rgb(229, 200, 255) 0%, rgb(176, 242, 255) 50%, rgb(229, 188, 255) 100%);
     height: 100vh;
     display: flex;
     align-items: center;  /* this centers vertically */
@@ -97,7 +99,7 @@
 .home .sidebar{
     flex: 1;
     border-right: 1px solid #c3c4c5;
-    background-color: rgb(36, 138, 202);
+    background-color: rgb(124, 172, 214);
 }
 .home .chat{
     flex:2;
@@ -112,7 +114,7 @@
     align-items: center;
     justify-content: space-between;
     height: 50px;
-    background-color:rgb(9, 88, 171);
+    background-color:rgb(13, 78, 147);
 }
 
 .navbar .logo{
@@ -170,7 +172,7 @@
     border-radius: 0.7rem;
     border: none;
     padding: 5px 10px ;
-    background-color: #a3c6e9;
+    background-color: #bbd2e9;
 }
 .search input::placeholder{
     color: #5581ae;
@@ -211,7 +213,7 @@
 .chats .userInfo{
    
     padding: 10px;
-    color: rgb(221, 231, 239);
+    color: rgb(240, 246, 251);
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -401,3 +403,35 @@
 }
 
 
+
+/* mobile responsive */
+
+@media only screen and (max-width: 500px){
+    
+    .home .sidebar{
+        flex: none;
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        z-index: 3;
+        /* display: none; */
+    }
+    .home .chat{
+        flex:none;
+        width: 100vw;
+        height: 100vh;
+        position:absolute;
+        z-index: 1;
+    }
+    .chat .backBtn{
+        font-size: 1.8rem;
+        margin-left: 15px;
+    }
+    .chat .backBtn span{
+        color: #bbbcbd;
+    }
+
+    .chat .chatInfo img{
+        margin-left: 0px;
+    }
+}

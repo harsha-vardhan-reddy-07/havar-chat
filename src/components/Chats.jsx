@@ -4,7 +4,7 @@ import { db } from '../firebase';
 import { AuthContext } from '../context/AuthContext';
 import { ChatContext } from '../context/ChatContext';
 
-const Chats = () => {
+const Chats = ({sidebarToggle, setSidebarToggle}) => {
 
   const {currentUser} = useContext(AuthContext);
   const {dispatch} = useContext(ChatContext);
@@ -29,7 +29,15 @@ const Chats = () => {
 
   const handleSelect = (u) => {
     dispatch({type:"CHANGE_USER", payload: u})
+
+    if (window.screen.width <= 500 ){
+      setSidebarToggle(!sidebarToggle);
+    }
+    setSidebarToggle(!sidebarToggle);
+
   }
+
+
 
 
 
@@ -42,7 +50,7 @@ const Chats = () => {
         <img src={chat[1].userInfo.photoURL} alt="" />
         <div className="userChatInfo">
           <span>{chat[1].userInfo.displayName}</span>
-          <p>{chat[1].lastMessage?.text}</p>
+          <p>{ chat[1].lastMessage?.text.length < 40 ? chat[1].lastMessage?.text.slice(0, 40) :  chat[1].lastMessage?.text.slice(0, 40) + '.....' }</p>
         </div>
       </div>
 

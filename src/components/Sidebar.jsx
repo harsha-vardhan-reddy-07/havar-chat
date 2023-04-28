@@ -4,13 +4,13 @@ import Search from './Search';
 import Chats from './Chats';
 
 
-const Sidebar = () => {
+const Sidebar = ({sidebarToggle, setSidebarToggle}) => {
   return (
-    <div className='sidebar'>
+    <div className='sidebar' style={sidebarToggle ? {left:'-120vw', transition:'1s'} : {left:'0', transition:'1s'}} >
 
       <Navbar />
       <Search />
-      <Chats />
+      <Chats sidebarToggle= {sidebarToggle} setSidebarToggle = {setSidebarToggle} />
 
     </div>
   )
